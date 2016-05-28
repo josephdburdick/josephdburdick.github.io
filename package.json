@@ -36,6 +36,7 @@
     "highlight.js": "^9.4.0",
     "history": "^2.1.1",
     "json-loader": "^0.5.4",
+    "lodash": "^4.13.1",
     "markdown-it": "^6.0.2",
     "mocha": "^2.4.5",
     "pixrem": "^3.0.0",
@@ -66,7 +67,8 @@
     "webpack": "^1.13.0",
     "webpack-dev-middleware": "^1.6.1",
     "webpack-hot-middleware": "^2.10.0",
-    "whatwg-fetch": "^1.0.0"
+    "whatwg-fetch": "^1.0.0",
+    "xml2js": "^0.4.16"
   },
   "babel": {
     "presets": [

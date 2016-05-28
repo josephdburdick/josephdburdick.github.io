@@ -7,12 +7,12 @@
  * This source code is licensed under the MIT license found in the
  * LICENSE.txt file in the root directory of this source tree.
  */
-
-import { Content } from '../../components';
+import 'whatwg-fetch';
+import {Content} from '../../components';
 
 export default {
 
-  path: '/',
+  path : '/',
 
   async action() {
     return new Promise((resolve, reject) => {
@@ -22,13 +22,12 @@ export default {
           resolve({
             title: content.title,
             component: Content,
-            props: content,
+            props: content
           });
         } catch (err) {
           reject(err);
         }
       });
     });
-  },
-
+  }
 };
