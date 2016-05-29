@@ -1,7 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto+Condensed:700|Roboto:400,300);
 
 :global (body) {
-  font: 400 16px/1.4 'Roboto', "Helvetica Neue", helvetica, arial, sans-serif
+  font: 300 16px/1.4 'Roboto', "Helvetica Neue", helvetica, arial, sans-serif
 }
 :root {
     --padding: 1rem;
@@ -24,8 +24,12 @@
   background-color: white;
   width: calc(100% - 10vw);
   max-width: 1000px;
-  margin: -35vh auto 0;
+  margin: -35vh auto 10vh;
   padding: var(--padding);
+
+  &:print{
+
+  }
 }
 
 .resume-header .mdl-layout__header-row {
