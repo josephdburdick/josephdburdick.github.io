@@ -21,7 +21,6 @@ const isVerbose = process.argv.includes('--verbose') || process.argv.includes('-
  * http://webpack.github.io/docs/configuration.html
  */
 const config = {
-
   // The base directory
   context: path.resolve(__dirname, '../'),
 

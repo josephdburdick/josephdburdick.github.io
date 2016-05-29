@@ -1,8 +1,12 @@
 import React from 'react';
 import Navigation from './Navigation';
-
 class Header extends React.Component {
-
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: this.props.name,
+    }
+  }
   componentDidMount() {
     window.componentHandler.upgradeElement(this.refs.root);
   }
@@ -13,16 +17,17 @@ class Header extends React.Component {
 
   render() {
     return (
-      <header className="mdl-layout__header" ref="root">
+      <header ref="root" className="resume-header mdl-layout__header mdl-layout__header--scroll ">
         <div className="mdl-layout__header-row">
-          <span className="mdl-layout-title">React Static Boilerplate</span>
+          <span className="mdl-layout-title">{this.state.name}Joe Burdick</span>
           <div className="mdl-layout-spacer"></div>
-          <Navigation />
+          <div>
+            <Navigation />
+          </div>
         </div>
       </header>
     );
   }
-
 }
 
 export default Header;

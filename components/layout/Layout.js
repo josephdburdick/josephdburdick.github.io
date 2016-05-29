@@ -1,5 +1,6 @@
 import React from 'react';
 import Header from './Header';
+import GithubBadge from './GithubBadge';
 import s from './Layout.css';
 
 class Layout extends React.Component {
@@ -16,8 +17,14 @@ class Layout extends React.Component {
     return (
       <div className="mdl-layout mdl-js-layout" ref="root">
         <div className="mdl-layout__inner-container">
-          <Header />
-          <main {...this.props} className={s.content} />
+          <Header title={this.props.title}/>
+          <div className={s['main-ribbon']}></div>
+          <div className={`mdl-shadow--2dp ${s['resume-main']}`}>
+            {/*<GithubBadge />*/}
+            <div className="mdl-cell mdl-cell--12-col">
+              <main {...this.props} className={s.content}/>
+            </div>
+          </div>
         </div>
       </div>
     );

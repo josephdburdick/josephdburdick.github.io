@@ -10,12 +10,12 @@ createApp({
   container: document.getElementById('container'),
 });
 
-// if (module.hot) {
-//   module.hot.accept(() => {
-//     createApp({
-//       routes,
-//       context: { store },
-//       container: document.getElementById('container'),
-//     });
-//   });
-// }
+if (module.hot) {
+  module.hot.accept(() => {
+    createApp({
+      routes,
+      context: { store },
+      container: document.getElementById('container'),
+    });
+  });
+}
