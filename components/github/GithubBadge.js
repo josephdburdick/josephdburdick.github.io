@@ -1,6 +1,7 @@
 import React, {Component, PropTypes} from 'react';
 import _ from 'lodash';
-import {fetchUserRepos, fetchUserEvents} from '../content/github.js';
+import {fetchUserRepos, fetchUserEvents} from './github-methods.js';
+
 class GithubBadge extends Component {
   constructor(props) {
     super(props);

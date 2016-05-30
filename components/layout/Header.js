@@ -19,7 +19,7 @@ class Header extends React.Component {
     return (
       <header ref="root" className="resume-header mdl-layout__header mdl-layout__header--scroll ">
         <div className="mdl-layout__header-row">
-          <span className="mdl-layout-title">{this.state.name}Joe Burdick</span>
+          <span className="mdl-layout-title">{this.props.name}</span>
           <div className="mdl-layout-spacer"></div>
           <div>
             <Navigation />

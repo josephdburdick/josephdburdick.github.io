@@ -1,4 +1,4 @@
-import {Content} from '../../components';
+import {Resume} from '../../components';
 export default {
 
   path : '/',
@@ -10,7 +10,7 @@ export default {
           const content = require('./index.md');
           resolve({
             title: content.title,
-            component: Content,
+            component: Resume,
             props: content
           });
         } catch (err) {

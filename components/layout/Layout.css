@@ -1,6 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto+Condensed:700|Roboto:400,300);
 
-:global (body) {
+body {
   font: 300 16px/1.4 'Roboto', "Helvetica Neue", helvetica, arial, sans-serif
 }
 :root {
@@ -10,6 +10,16 @@
   width: 100%;
   max-width: 1000px;
   margin: 0 auto;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  .mdl-layout-title {
+    font-family: 'Oswald', "Helvetica Condensed", Impact;
+  }
 }
 
 .main-ribbon {
@@ -26,10 +36,6 @@
   max-width: 1000px;
   margin: -35vh auto 10vh;
   padding: var(--padding);
-
-  &:print{
-
-  }
 }
 
 .resume-header .mdl-layout__header-row {

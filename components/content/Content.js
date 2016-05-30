@@ -1,18 +1,20 @@
-import React, { PropTypes } from 'react';
+import React, { Component, PropTypes } from 'react';
 import Layout from '../layout/Layout.js';
-import Resume from '../layout/Resume.js';
 
-function Content({ title, html }) {
-  const experienceData = require('../../routes/experience/index.js');
-  return (
-    <Layout>
-      <Resume experiences={experienceData} />
-    </Layout>
-  );
+class Content extends Component {
+  render() {
+    return (
+      <Layout {...this.props}>
+        <header><h3>{title}</h3></header>
+        <div dangerouslySetInnerHTML={{ __html: html }} />
+      </Layout>
+    )
+  }
 }
 
 Content.propTypes = {
   title: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
   html: PropTypes.string.isRequired
 };
 

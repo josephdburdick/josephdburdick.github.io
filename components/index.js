@@ -9,4 +9,5 @@
  */
 
 export Content from './content/Content';
+export Resume from './resume/Resume';
 export Layout from './layout/Layout';

@@ -16,7 +16,7 @@ class Layout extends React.Component {
     return (
       <div className="mdl-layout mdl-js-layout" ref="root">
         <div className="mdl-layout__inner-container">
-          <Header title={this.props.title}/>
+          <Header {...this.props} />
           <div className={s['main-ribbon']}></div>
           <div className={`mdl-shadow--2dp ${s['resume-main']}`}>
             <div className="mdl-cell mdl-cell--12-col">
