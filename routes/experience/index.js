@@ -5,7 +5,7 @@ import davidsbridal from './davidsbridal.md';
 import fishbowl from './fishbowl.md';
 import tmpworldwide from './tmpworldwide.md';
 
-export default {
+export {
   adoptive,
   joey,
   studiografica,

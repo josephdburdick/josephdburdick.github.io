@@ -1,5 +1,4 @@
 import {Content} from '../../components';
-import experience from '../experience/';
 export default {
 
   path : '/',
@@ -9,11 +8,8 @@ export default {
       require.ensure([], require => {
         try {
           const content = require('./index.md');
-          console.log(experience);
           resolve({
             title: content.title,
-            name: content.name,
-            accounts: content.accounts,
             component: Content,
             props: content
           });
