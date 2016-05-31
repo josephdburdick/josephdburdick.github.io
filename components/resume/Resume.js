@@ -76,8 +76,8 @@ class Resume extends Component {
       <Layout {...this.props} className={s.resume}>
         <main className="mdl-layout__content">
           <div className="page-content">
-            <GithubBadge {...this.props}/>
             { isNullorEmpty( workExperience ) ? null : timeline }
+            <GithubBadge {...this.props}/>
           </div>
         </main>
       </Layout>

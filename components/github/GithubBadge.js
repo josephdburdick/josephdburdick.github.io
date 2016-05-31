@@ -34,7 +34,11 @@ class GithubBadge extends Component {
     const renderLastActivity = () => {
       const event = deconstructUserEvent(this.state.events[0]);
       const eventType = event.type.replace('Event','')
-      return `Last Github activity: ${moment(event.created_at).fromNow()}`
+      return (
+        <small>
+          Last Github activity: <a href={`https://github.com/${this.state.username}?tab=activity`} target="_blank">{moment(event.created_at).fromNow()}</a>
+        </small>
+      )
     }
     const lastActivity = this.state.events.length ? renderLastActivity() : null;
 
