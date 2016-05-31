@@ -5,16 +5,16 @@ import s from './Layout.css';
 class Layout extends React.Component {
 
   componentDidMount() {
-    window.componentHandler.upgradeElement(this.refs.root);
+    window.componentHandler.upgradeElement(this.refs.layout);
   }
 
   componentWillUnmount() {
-    window.componentHandler.downgradeElements(this.refs.root);
+    window.componentHandler.downgradeElements(this.refs.layout);
   }
 
   render() {
     return (
-      <div className="mdl-layout mdl-js-layout" ref="root">
+      <div className="mdl-layout mdl-js-layout" ref="layout">
         <div className="mdl-layout__inner-container">
           <Header {...this.props} />
           <div className={s['main-ribbon']}></div>

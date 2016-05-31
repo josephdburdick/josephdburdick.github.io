@@ -47,7 +47,24 @@ function fetchUserEvents(username) {
   });
 }
 
+function deconstructUserEvent(event) {
+  const {
+    payload: {action},
+    type,
+    repo,
+    created_at
+  } = event;
+  return {
+    type,
+    repo,
+    created_at,
+    action
+  }
+}
+
+
 export {
   fetchUserRepos,
-  fetchUserEvents
+  fetchUserEvents,
+  deconstructUserEvent
 };

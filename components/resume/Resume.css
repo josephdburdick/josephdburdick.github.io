@@ -1,0 +1,17 @@
+:root {
+  --gutter: 8px;
+}
+.resume {
+  display: flex;
+}
+.text-upcase {
+  text-transform: uppercase;
+}
+.row {
+  margin-left: -16px;
+  margin-right: -16px;
+}
+.col {
+  padding-left: 8px;
+  padding-right: 8px;
+}

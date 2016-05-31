@@ -2,7 +2,7 @@ import React, {Component, PropTypes} from 'react';
 import Layout from '../layout/Layout';
 import _ from 'lodash';
 import GithubBadge from '../github/GithubBadge';
-
+import s from './Resume.css';
 function isNullorEmpty(obj) {
   return obj !== undefined
     && obj !== null
@@ -32,14 +32,32 @@ class Resume extends Component {
     let jobs = [];
     _.forIn(workExperience, (job, key) => jobs.push(job));
 
-    function jobTemplate(job, key) {
+    function employmentTimespanTemplate(job) {
       return (
-        <li key={key}>
-          {job.company}
-
-        </li>
+        <span>
+          {job.employment.start}
+          &nbsp;&mdash;&nbsp;
+          {job.employment.end ? job.employment.end : 'PRESENT'}
+        </span>
       )
     }
+
+    const jobTemplate = (job, key) => (
+      <li key={key} className={s.row}>
+        <div className={`content-grid mdl-grid`}>
+          <div className={s.col}>
+            <strong className={s['text-upcase']}>{job.company}</strong>
+          </div>
+          <div className={s.col}>
+            <span>{job.role}</span>
+          </div>
+          <div className={s.col}>
+            {employmentTimespanTemplate(job)}
+          </div>
+          <div className={s.col} dangerouslySetInnerHTML={{ __html: job.html }} />
+        </div>
+      </li>
+    )
 
     const timeline = (
       <section>
@@ -55,12 +73,11 @@ class Resume extends Component {
     )
 
     return (
-      <Layout {...this.props}>
+      <Layout {...this.props} className={s.resume}>
         <main className="mdl-layout__content">
           <div className="page-content">
-            {
-              isNullorEmpty( workExperience ) ? null : timeline
-            }
+            <GithubBadge {...this.props}/>
+            { isNullorEmpty( workExperience ) ? null : timeline }
           </div>
         </main>
       </Layout>

@@ -4,21 +4,15 @@ body {
   font: 300 16px/1.4 'Roboto', "Helvetica Neue", helvetica, arial, sans-serif
 }
 :root {
-    --padding: 1rem;
+  --padding: 1rem;
 }
 .content {
   width: 100%;
   max-width: 1000px;
   margin: 0 auto;
 
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6,
-  .mdl-layout-title {
-    font-family: 'Oswald', "Helvetica Condensed", Impact;
+  .content-grid {
+    padding: 0;
   }
 }
 
@@ -27,6 +21,9 @@ body {
   height: 40vh;
   background-color: #3F51B5;
   flex-shrink: 0;
+  transform: skewY(-2.5deg);
+  transform-origin: top left;
+  z-index: -1;
 }
 
 .resume-main {
