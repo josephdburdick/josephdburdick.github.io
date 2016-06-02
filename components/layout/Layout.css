@@ -16,6 +16,17 @@ body {
   }
 }
 
+.row {
+  margin-left: -8px;
+  margin-right: -8px;
+  display: flex;
+  flex-direction: row;
+}
+.col {
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
 .main-ribbon {
   width: 100%;
   height: 40vh;

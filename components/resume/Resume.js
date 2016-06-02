@@ -13,6 +13,7 @@ function isNullorEmpty(obj) {
 class Resume extends Component {
   render() {
     const workExperience = require('./data/experience/index.js');
+    const educationExperience = require('./data/education/index.js');
     {/*
       This could be the mixture of 2 timelines:
       work experience and github commits.
@@ -25,12 +26,14 @@ class Resume extends Component {
       Insert summary here about Bundoo.
       • Bundoo: 501 commits (private)
       • Yale School of Medicine (public)
-      All work could be synced with the inputed year for
+      All work could be synced with the inputed year. Needs Github authentication.
     */}
     const loading = (<div>Loading...</div>);
 
     let jobs = [];
+    let educationAchievements = [];
     _.forIn(workExperience, (job, key) => jobs.push(job));
+    _.forIn(educationExperience, (achievements, key) => educationAchievements.push(achievements));
 
     function employmentTimespanTemplate(job) {
       return (
@@ -59,7 +62,20 @@ class Resume extends Component {
       </li>
     )
 
-    const timeline = (
+    const workExperienceTimeline = (
+      <section>
+        <header><h3>Experience</h3></header>
+        <ul className="mdl-list">
+        {
+          jobs.map((job, key) => {
+            return jobTemplate(job, key);
+          })
+        }
+        </ul>
+      </section>
+    )
+
+    const educationTimeline = (
       <section>
         <header><h3>Experience</h3></header>
         <ul className="mdl-list">
@@ -76,7 +92,7 @@ class Resume extends Component {
       <Layout {...this.props} className={s.resume}>
         <main className="mdl-layout__content">
           <div className="page-content">
-            { isNullorEmpty( workExperience ) ? null : timeline }
+            { isNullorEmpty( workExperience ) ? null : workExperienceTimeline }
             <GithubBadge {...this.props}/>
           </div>
         </main>
