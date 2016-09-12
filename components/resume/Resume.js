@@ -14,25 +14,15 @@ class Resume extends Component {
   render() {
     const workExperience = require('./data/experience/index.js');
     const educationExperience = require('./data/education/index.js');
-    {/*
-      This could be the mixture of 2 timelines:
-      work experience and github commits.
-
-      Projects could be 'associated' with your work history.
-
-      Adoptive
-      932,391,001 lines of code written.
-
-      Insert summary here about Bundoo.
-      • Bundoo: 501 commits (private)
-      • Yale School of Medicine (public)
-      All work could be synced with the inputed year. Needs Github authentication.
-    */}
     const loading = (<div>Loading...</div>);
 
-    let jobs = [];
     let educationAchievements = [];
-    _.forIn(workExperience, (job, key) => jobs.push(job));
+    const jobs = Object.values(workExperience).sort((a, b) => {
+      if (!a.employment.end || !b.employment.end){
+        return true;
+      }
+      return new Date(b.employment.end) - new Date(a.employment.end);
+    });
     _.forIn(educationExperience, (achievements, key) => educationAchievements.push(achievements));
 
     function employmentTimespanTemplate(job) {
@@ -67,9 +57,7 @@ class Resume extends Component {
         <header><h3>Experience</h3></header>
         <ul className="mdl-list">
         {
-          jobs.map((job, key) => {
-            return jobTemplate(job, key);
-          })
+          jobs.map((job, key) => jobTemplate(job, key))
         }
         </ul>
       </section>
@@ -80,9 +68,7 @@ class Resume extends Component {
         <header><h3>Experience</h3></header>
         <ul className="mdl-list">
         {
-          jobs.map((job, key) => {
-            return jobTemplate(job, key);
-          })
+          jobs.map((job, key) => jobTemplate(job, key))
         }
         </ul>
       </section>

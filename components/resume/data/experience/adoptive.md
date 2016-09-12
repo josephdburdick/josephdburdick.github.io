@@ -3,7 +3,7 @@ company: Adoptive
 role: 'Front-end Engineer'
 employment:
   start: 4/15/2014
-  end: false
+  end: 8/15/2016
 ---
 Develop technical projects, contribute to strategic planning and collaborate on user experience designs.
 - Moved agency from Grunt.js to Gulp.js task runner

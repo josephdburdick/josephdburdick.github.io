@@ -16,11 +16,12 @@ class GithubBadge extends Component {
   }
 
   componentWillMount() {
-    ghMethods.fetchUserRepos(this.state.username).then((repos) => {
+    ghMethods.fetchUserRepos(this.state.username).then(repos => {
       this.setState({repos})
+      console.log(repos);
       this.setState({forks: repos.filter(repo => !!repo.fork)});
     });
-    ghMethods.fetchUserEvents(this.state.username).then((events) => {
+    ghMethods.fetchUserEvents(this.state.username).then(events => {
       this.setState({events});
     });
   }
