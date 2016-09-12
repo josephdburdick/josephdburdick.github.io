@@ -1,11 +1,8 @@
 import React, {Component, PropTypes} from 'react';
 import moment from 'moment';
 import _ from 'lodash';
-import {
-  fetchUserRepos,
-  fetchUserEvents,
-  deconstructUserEvent
-} from './github-methods.js';
+import * as ghMethods from './github-methods.js';
+import s from '../layout/Layout.css';
 
 class GithubBadge extends Component {
   constructor(props) {
@@ -19,33 +16,42 @@ class GithubBadge extends Component {
   }
 
   componentWillMount() {
-    fetchUserRepos(this.state.username).then((repos) => {
+    ghMethods.fetchUserRepos(this.state.username).then((repos) => {
       this.setState({repos})
       this.setState({forks: repos.filter(repo => !!repo.fork)});
     });
-    fetchUserEvents(this.state.username).then((events) => {
+    ghMethods.fetchUserEvents(this.state.username).then((events) => {
       this.setState({events});
-      console.log(events);
     });
   }
 
-
   render() {
+    let latestEvent = ghMethods.cloneUserEvent(this.state.events[0]);
     const renderLastActivity = () => {
-      const event = deconstructUserEvent(this.state.events[0]);
-      const eventType = event.type.replace('Event','')
+      const eventType = ghMethods.humanizeEventType(latestEvent);
+      const action = latestEvent.payload.action ? latestEvent.payload.action : null;
+      const {repo} = latestEvent;
       return (
-        <small>
-          Last Github activity: <a href={`https://github.com/${this.state.username}?tab=activity`} target="_blank">{moment(event.created_at).fromNow()}</a>
-        </small>
+        <div className={s.row}>
+          <div className={s.col}>
+            <small>Latest Github activity:</small>
+          </div>
+          <div className={s.col}>
+            <small>
+              <a href={`https://github.com/${this.state.username}?tab=activity`} target="_blank">{this.state.username}</a> {action} {eventType} <a href={repo.url} target="_blank">{repo.name.toLowerCase()}</a>
+              <br/>@ <a href={`https://github.com/${this.state.username}?tab=activity`} target="_blank">{moment(latestEvent.created_at).fromNow()}</a>
+            </small>
+          </div>
+        </div>
       )
     }
+
     const lastActivity = this.state.events.length ? renderLastActivity() : null;
 
     return (
-      <div>
+      <section>
         {lastActivity}
-      </div>
+      </section>
     );
   }
 
