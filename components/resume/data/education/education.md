@@ -1,5 +1,5 @@
 ---
-
+title:  Education
 ---
 Awarded Bachelor of Science in Mass Communications with a focus in Creative Advertising.
 Studied abroad in Amsterdam.
