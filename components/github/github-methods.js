@@ -18,7 +18,11 @@ function fetchUserRepos(username) {
   return new Promise((resolve, reject) => {
     require.ensure([], require => {
       try {
-        fetch(url).then(checkStatus).then(parseJSON).then((data) => resolve(data)).catch((error) => reject(error))
+        fetch(url)
+          .then(checkStatus)
+          .then(parseJSON)
+          .then(data => resolve(data))
+          .catch(error => reject(error))
       } catch (error) {
         reject(error);
       }
@@ -31,7 +35,11 @@ function fetchUserEvents(username) {
   return new Promise((resolve, reject) => {
     require.ensure([], require => {
       try {
-        fetch(url).then(checkStatus).then(parseJSON).then((data) => resolve(data)).catch((error) => reject(error))
+        fetch(url)
+          .then(checkStatus)
+          .then(parseJSON)
+          .then(data => resolve(data))
+          .catch(error => reject(error))
       } catch (error) {
         reject(error);
       }
