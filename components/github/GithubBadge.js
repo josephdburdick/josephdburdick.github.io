@@ -1,6 +1,5 @@
 import React, {Component, PropTypes} from 'react';
 import moment from 'moment';
-import _ from 'lodash';
 import * as ghMethods from './github-methods.js';
 import s from '../layout/Layout.css';
 
